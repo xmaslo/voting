@@ -4,6 +4,8 @@ import { Voting } from "../target/types/voting";
 import { assert } from "chai";
 import { getWalletFromEnvironment } from "../app/utils";
 
+const VOTER_SECRET_PATH = "/home/xdavid/.config/solana/voter.json";
+
 describe("voting", () => {
   anchor.setProvider(anchor.AnchorProvider.env());
 
@@ -39,7 +41,7 @@ describe("voting", () => {
 
   it("Cannot close not-owned program!", async () => {
     const customKeypair = getWalletFromEnvironment(
-      "/home/xdavid/.config/solana/voter.json"
+      VOTER_SECRET_PATH
     );
   
     const customProvider = new anchor.AnchorProvider(
