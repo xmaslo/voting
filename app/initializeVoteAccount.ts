@@ -1,10 +1,13 @@
+import * as dotenv from 'dotenv'
 import * as anchor from "@coral-xyz/anchor";
 import { Program } from "@coral-xyz/anchor";
 import { Voting } from "../target/types/voting";
 import { getWalletFromEnvironment, writeVoteCountAccToEnv  } from "./utils"
 
+dotenv.config()
+
 const customKeypair = getWalletFromEnvironment(
-    "/home/xdavid/.config/solana/voteInitiator.json"
+    process.env.VOTE_OWNER_SECRET_PATH
 );
 
 const customProvider = new anchor.AnchorProvider(
