@@ -2,7 +2,7 @@ import { Keypair } from "@solana/web3.js";
 import * as anchor from "@coral-xyz/anchor";
 import fs from "fs";
 
-const ACCOUNT_KEY_PATH = "app/voteCountAcc.json";
+const ACCOUNT_KEY_PATH = "./temp/voteCountAcc.json";
 
 export function getWalletFromEnvironment(customKeypairPath) {
     const customKeypair = Keypair.fromSecretKey(

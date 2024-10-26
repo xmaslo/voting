@@ -20,7 +20,7 @@ anchor.setProvider(customProvider);
 const program = anchor.workspace.Voting as Program<Voting>;
 
 async function vote() {
-    const voteCountAccount = getWalletFromEnvironment("./app/voteCountAcc.json");
+    const voteCountAccount = getWalletFromEnvironment("./temp/voteCountAcc.json");
     const tx = await program.methods
       .vote()
       .accounts({
