@@ -58,9 +58,7 @@ describe("voting", () => {
     try {
       await otherProgram.methods
         .closeVote()
-        .accounts({
-          voteCount: voteCountAccount.publicKey,
-        })
+        .accounts({ voteCount: voteCountAccount.publicKey })
         .rpc();
     } catch (error) {
       const voteCountData = await program.account.voteCount.fetch(voteCountAccount.publicKey);
@@ -74,9 +72,7 @@ describe("voting", () => {
   it("Closed vote", async () => {
     await program.methods
       .closeVote()
-      .accounts({
-        voteCount: voteCountAccount.publicKey,
-      })
+      .accounts({ voteCount: voteCountAccount.publicKey })
       .rpc();
 
     const voteCountData = await program.account.voteCount.fetch(voteCountAccount.publicKey);
