@@ -9,7 +9,6 @@ describe("voting", () => {
 
   const program = anchor.workspace.Voting as Program<Voting>;
   const voteCountAccount = anchor.web3.Keypair.generate();
-  // console.log("VoteCount pubkey: ", voteCountAccount.publicKey.toBase58());
 
   it("Is initialized!", async () => {
     await program.methods
