@@ -1,10 +1,11 @@
+import * as dotenv from 'dotenv'
 import * as anchor from "@coral-xyz/anchor";
 import { Program } from "@coral-xyz/anchor";
 import { Voting } from "../target/types/voting";
 import { assert } from "chai";
 import { getWalletFromEnvironment } from "../app/utils";
 
-const VOTER_SECRET_PATH = "/home/xdavid/.config/solana/voter.json";
+dotenv.config()
 
 describe("voting", () => {
   anchor.setProvider(anchor.AnchorProvider.env());
@@ -41,7 +42,7 @@ describe("voting", () => {
 
   it("Cannot close not-owned program!", async () => {
     const customKeypair = getWalletFromEnvironment(
-      VOTER_SECRET_PATH
+      process.env.VOTER_SECRET_PATH
     );
   
     const customProvider = new anchor.AnchorProvider(
