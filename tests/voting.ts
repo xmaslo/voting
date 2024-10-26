@@ -5,7 +5,6 @@ import { assert } from "chai";
 import { getWalletFromEnvironment } from "../app/utils";
 
 describe("voting", () => {
-  // Configure the client to use the local cluster.
   anchor.setProvider(anchor.AnchorProvider.env());
 
   const program = anchor.workspace.Voting as Program<Voting>;
